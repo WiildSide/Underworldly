@@ -14,20 +14,17 @@ size = Vector2(123, 121)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_jblnt")
+"texture": ExtResource("3_w4i5b")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_pr011")
+"texture": ExtResource("4_p5j4l")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_nrcnc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_pr011")
+"texture": ExtResource("5_usrq1")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 1.0
 }]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2xxnc"]
@@ -54,9 +51,9 @@ motion_mirroring = Vector2(0.5, 0.5)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(250, 99)
-scale = Vector2(1.4043, 1.40972)
-texture = ExtResource("1_u0rl5")
+position = Vector2(121, 1.00001)
+scale = Vector2(1.65625, 1.91667)
+texture = ExtResource("1_o33l0")
 centered = false
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
@@ -66,8 +63,8 @@ script = ExtResource("1_ruomi")
 position = Vector2(498.5, 286.5)
 shape = SubResource("RectangleShape2D_ehgik")
 
-[node name="MovingSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-position = Vector2(499, 287)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(499, 282)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_i0jhf")
 frame_progress = 0.233058
