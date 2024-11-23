@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://ckc6fkamhdxc0" path="res://icon.svg" id="2_tuo6s"]
 [ext_resource type="Texture2D" uid="uid://o345penm4l10" path="res://assets/walking/Angel_Walking-2.png.png" id="3_pr011"]
 [ext_resource type="Texture2D" uid="uid://bryquhkb38vni" path="res://assets/walking/Angel_Walking-3.png.png" id="4_nrcnc"]
+[ext_resource type="Texture2D" uid="uid://ce53uw856wxw5" path="res://Angel_Walking-1.png.webp" id="3_w4i5b"]
+[ext_resource type="Texture2D" uid="uid://dvauhcbl2v425" path="res://Angel_Walking-2.png.webp" id="4_p5j4l"]
+[ext_resource type="Texture2D" uid="uid://b22joenek7nej" path="res://Angel_Walking-3.png.webp" id="5_usrq1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ehgik"]
 size = Vector2(123, 121)
@@ -53,7 +56,7 @@ light_mask = 2
 visibility_layer = 2
 position = Vector2(121, 1.00001)
 scale = Vector2(1.65625, 1.91667)
-texture = ExtResource("1_o33l0")
+texture = ExtResource("1_u0rl5")
 centered = false
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
