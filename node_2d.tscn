@@ -1,14 +1,20 @@
-[gd_scene load_steps=11 format=3 uid="uid://boc0kl7gb00kl"]
+[gd_scene load_steps=20 format=3 uid="uid://boc0kl7gb00kl"]
 
 [ext_resource type="Script" path="res://character_body_2d.gd" id="1_ruomi"]
 [ext_resource type="Texture2D" uid="uid://cio6s72f0ao5" path="res://battlebgDream.png" id="1_u0rl5"]
-[ext_resource type="Texture2D" uid="uid://be4cy2t1sypoq" path="res://assets/walking/Angel_Walking-1.png.png" id="2_jblnt"]
 [ext_resource type="Texture2D" uid="uid://ckc6fkamhdxc0" path="res://icon.svg" id="2_tuo6s"]
-[ext_resource type="Texture2D" uid="uid://o345penm4l10" path="res://assets/walking/Angel_Walking-2.png.png" id="3_pr011"]
-[ext_resource type="Texture2D" uid="uid://bryquhkb38vni" path="res://assets/walking/Angel_Walking-3.png.png" id="4_nrcnc"]
 [ext_resource type="Texture2D" uid="uid://ce53uw856wxw5" path="res://Angel_Walking-1.png.webp" id="3_w4i5b"]
 [ext_resource type="Texture2D" uid="uid://dvauhcbl2v425" path="res://Angel_Walking-2.png.webp" id="4_p5j4l"]
 [ext_resource type="Texture2D" uid="uid://b22joenek7nej" path="res://Angel_Walking-3.png.webp" id="5_usrq1"]
+[ext_resource type="Texture2D" uid="uid://cduflj36xrudo" path="res://assets/Angel/Angel Walking Bow-1.png.png" id="6_bnkwd"]
+[ext_resource type="Texture2D" uid="uid://s4drgk5s17xm" path="res://assets/Angel/Angel Walking Bow-2.png.png" id="7_hpoun"]
+[ext_resource type="Texture2D" uid="uid://bg8h06q6nmbo4" path="res://assets/Angel/Angel Walking Bow-3.png.png" id="8_m1q3b"]
+[ext_resource type="Texture2D" uid="uid://cc7rl6txeg42s" path="res://assets/Angel/Angel Walking Spear-1.png.png" id="9_6nsn0"]
+[ext_resource type="Texture2D" uid="uid://d0gwrhyt66mo0" path="res://assets/Angel/Angel Walking Spear-2.png.png" id="10_fpjgh"]
+[ext_resource type="Texture2D" uid="uid://brbyi001kvtbg" path="res://assets/Angel/Angel Walking Spear-3.png.png" id="11_ino25"]
+[ext_resource type="Texture2D" uid="uid://bwdwkl2uqb7pm" path="res://assets/Angel/Angel Walking Sword-1.png.png" id="12_wvkum"]
+[ext_resource type="Texture2D" uid="uid://cmxorpusbchh0" path="res://assets/Angel/Angel Walking Sword-2.png.png" id="13_a1hao"]
+[ext_resource type="Texture2D" uid="uid://blpi7b7qio7dy" path="res://assets/Angel/Angel Walking Sword-3.png.png" id="14_4iw1k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ehgik"]
 size = Vector2(123, 121)
@@ -26,8 +32,59 @@ animations = [{
 "texture": ExtResource("5_usrq1")
 }],
 "loop": true,
-"name": &"default",
-"speed": 1.0
+"name": &"movement",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_bnkwd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_hpoun")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_m1q3b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_hpoun")
+}],
+"loop": true,
+"name": &"movement_bow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_6nsn0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_fpjgh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ino25")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_fpjgh")
+}],
+"loop": true,
+"name": &"movement_spear",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_wvkum")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_a1hao")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_4iw1k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_a1hao")
+}],
+"loop": true,
+"name": &"movement_sword",
+"speed": 5.0
 }]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2xxnc"]
@@ -54,8 +111,8 @@ motion_mirroring = Vector2(0.5, 0.5)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(121, 1.00001)
-scale = Vector2(1.65625, 1.91667)
+position = Vector2(-8.00002, -67)
+scale = Vector2(2.24609, 2.26042)
 texture = ExtResource("1_u0rl5")
 centered = false
 
@@ -67,14 +124,19 @@ position = Vector2(498.5, 286.5)
 shape = SubResource("RectangleShape2D_ehgik")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-position = Vector2(499, 282)
-scale = Vector2(0.5, 0.5)
+position = Vector2(499, 289)
+scale = Vector2(0.38125, 0.4)
 sprite_frames = SubResource("SpriteFrames_i0jhf")
-frame_progress = 0.233058
+animation = &"movement"
+frame_progress = 0.493844
 
 [node name="DashCooldown" type="Timer" parent="CharacterBody2D"]
 wait_time = 3.0
 one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(499, 204)
+position_smoothing_speed = 1.0
 
 [node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
 
@@ -84,7 +146,7 @@ scale = Vector2(9.78125, 1)
 sprite_frames = SubResource("SpriteFrames_2xxnc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
-position = Vector2(545, 644)
+position = Vector2(549, 648)
 shape = SubResource("RectangleShape2D_gs7wg")
 
 [connection signal="timeout" from="CharacterBody2D/DashCooldown" to="CharacterBody2D" method="_on_dash_cooldown_timeout"]
