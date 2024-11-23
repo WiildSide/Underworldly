@@ -40,9 +40,13 @@ script = ExtResource("1_ruomi")
 position = Vector2(498.5, 286.5)
 shape = SubResource("RectangleShape2D_ehgik")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="LRMovementSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 position = Vector2(498, 287)
 sprite_frames = SubResource("SpriteFrames_i0jhf")
+
+[node name="DashCooldown" type="Timer" parent="CharacterBody2D"]
+wait_time = 3.0
+one_shot = true
 
 [node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
 
