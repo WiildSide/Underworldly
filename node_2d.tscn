@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://boc0kl7gb00kl"]
+[gd_scene load_steps=11 format=3 uid="uid://boc0kl7gb00kl"]
 
 [ext_resource type="Script" path="res://character_body_2d.gd" id="1_ruomi"]
 [ext_resource type="Texture2D" uid="uid://be4cy2t1sypoq" path="res://Angel_Walking-1.png.png" id="2_jblnt"]
 [ext_resource type="Texture2D" uid="uid://ckc6fkamhdxc0" path="res://icon.svg" id="2_tuo6s"]
-[ext_resource type="Texture2D" uid="uid://o345penm4l10" path="res://Angel_Walking-2.png.png" id="3_pr011"]
-[ext_resource type="Texture2D" uid="uid://bryquhkb38vni" path="res://Angel_Walking-3.png.png" id="4_nrcnc"]
+[ext_resource type="Texture2D" uid="uid://ce53uw856wxw5" path="res://Angel_Walking-1.png.webp" id="3_w4i5b"]
+[ext_resource type="Texture2D" uid="uid://dvauhcbl2v425" path="res://Angel_Walking-2.png.webp" id="4_p5j4l"]
+[ext_resource type="Texture2D" uid="uid://b22joenek7nej" path="res://Angel_Walking-3.png.webp" id="5_usrq1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ehgik"]
 size = Vector2(123, 121)
@@ -13,20 +14,17 @@ size = Vector2(123, 121)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_jblnt")
+"texture": ExtResource("3_w4i5b")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_pr011")
+"texture": ExtResource("4_p5j4l")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_nrcnc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_pr011")
+"texture": ExtResource("5_usrq1")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 1.0
 }]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2xxnc"]
@@ -53,8 +51,9 @@ motion_mirroring = Vector2(0.5, 0.5)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 light_mask = 2
 visibility_layer = 2
-position = Vector2(250, 99)
-scale = Vector2(1.4043, 1.40972)
+position = Vector2(121, 1.00001)
+scale = Vector2(1.65625, 1.91667)
+texture = ExtResource("1_o33l0")
 centered = false
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
@@ -64,8 +63,8 @@ script = ExtResource("1_ruomi")
 position = Vector2(498.5, 286.5)
 shape = SubResource("RectangleShape2D_ehgik")
 
-[node name="MovingSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-position = Vector2(499, 287)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(499, 282)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_i0jhf")
 frame_progress = 0.043092
