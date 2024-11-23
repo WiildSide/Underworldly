@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://boc0kl7gb00kl"]
+[gd_scene load_steps=11 format=3 uid="uid://boc0kl7gb00kl"]
 
 [ext_resource type="Script" path="res://character_body_2d.gd" id="1_ruomi"]
-[ext_resource type="Texture2D" uid="uid://be4cy2t1sypoq" path="res://Angel_Walking-1.png.png" id="2_jblnt"]
+[ext_resource type="Texture2D" uid="uid://cio6s72f0ao5" path="res://battlebgDream.png" id="1_u0rl5"]
+[ext_resource type="Texture2D" uid="uid://be4cy2t1sypoq" path="res://assets/walking/Angel_Walking-1.png.png" id="2_jblnt"]
 [ext_resource type="Texture2D" uid="uid://ckc6fkamhdxc0" path="res://icon.svg" id="2_tuo6s"]
-[ext_resource type="Texture2D" uid="uid://o345penm4l10" path="res://Angel_Walking-2.png.png" id="3_pr011"]
-[ext_resource type="Texture2D" uid="uid://bryquhkb38vni" path="res://Angel_Walking-3.png.png" id="4_nrcnc"]
+[ext_resource type="Texture2D" uid="uid://o345penm4l10" path="res://assets/walking/Angel_Walking-2.png.png" id="3_pr011"]
+[ext_resource type="Texture2D" uid="uid://bryquhkb38vni" path="res://assets/walking/Angel_Walking-3.png.png" id="4_nrcnc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ehgik"]
 size = Vector2(123, 121)
@@ -55,6 +56,7 @@ light_mask = 2
 visibility_layer = 2
 position = Vector2(250, 99)
 scale = Vector2(1.4043, 1.40972)
+texture = ExtResource("1_u0rl5")
 centered = false
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
@@ -68,7 +70,7 @@ shape = SubResource("RectangleShape2D_ehgik")
 position = Vector2(499, 287)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_i0jhf")
-frame_progress = 0.043092
+frame_progress = 0.233058
 
 [node name="DashCooldown" type="Timer" parent="CharacterBody2D"]
 wait_time = 3.0

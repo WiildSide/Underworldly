@@ -47,6 +47,17 @@ func _physics_process(delta: float) -> void:
 	else:
 		dashing_speed = 1
 		
+	# animations
+	if dashing_speed > 1:
+		print("dashing")
+	elif velocity.y > 0:
+		print("falling")
+	elif velocity.y < 0:
+		print("rising")
+	elif velocity.x < 0:
+		print("moving left")
+	elif velocity.x > 0:
+		print("moving right")
 	
 	
 	
