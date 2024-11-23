@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://boc0kl7gb00kl"]
+[gd_scene load_steps=9 format=3 uid="uid://boc0kl7gb00kl"]
 
+[ext_resource type="Texture2D" uid="uid://cio6s72f0ao5" path="res://battlebgDream.png" id="1_o33l0"]
 [ext_resource type="Script" path="res://character_body_2d.gd" id="1_ruomi"]
 [ext_resource type="Texture2D" uid="uid://ckc6fkamhdxc0" path="res://icon.svg" id="2_tuo6s"]
+[ext_resource type="Texture2D" uid="uid://c00bnw4vk35u3" path="res://Angel_Walking_Bow-1.png.webp" id="3_8h54h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ehgik"]
 size = Vector2(123, 121)
@@ -10,7 +12,7 @@ size = Vector2(123, 121)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_tuo6s")
+"texture": ExtResource("3_8h54h")
 }],
 "loop": true,
 "name": &"default",
@@ -33,6 +35,19 @@ size = Vector2(1240, 126)
 
 [node name="Node2D" type="Node2D"]
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(250, 99)
+scale = Vector2(1.4043, 1.40972)
+texture = ExtResource("1_o33l0")
+centered = false
+
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("1_ruomi")
 
@@ -40,8 +55,9 @@ script = ExtResource("1_ruomi")
 position = Vector2(498.5, 286.5)
 shape = SubResource("RectangleShape2D_ehgik")
 
-[node name="LRMovementSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-position = Vector2(498, 287)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(499, 287)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_i0jhf")
 
 [node name="DashCooldown" type="Timer" parent="CharacterBody2D"]
@@ -56,5 +72,5 @@ scale = Vector2(9.78125, 1)
 sprite_frames = SubResource("SpriteFrames_2xxnc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
-position = Vector2(558, 646)
+position = Vector2(545, 644)
 shape = SubResource("RectangleShape2D_gs7wg")
