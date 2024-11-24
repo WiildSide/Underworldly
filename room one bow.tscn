@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://brodyjmk78vxg"]
+[gd_scene load_steps=30 format=3 uid="uid://brodyjmk78vxg"]
 
 [ext_resource type="Texture2D" uid="uid://bwqo5r1717w88" path="res://assets/locations/Front Rock/Rocks With Lava-1.png.png" id="1_lnunv"]
 [ext_resource type="Texture2D" uid="uid://bmwr1otrtf6fp" path="res://assets/locations/Front Rock/Rocks With Lava-2.png.png" id="2_yxuwx"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://cblrkjpguyr0b" path="res://assets/locations/Front Rock/Rocks With Lava-5.png.png" id="4_5oocp"]
 [ext_resource type="Texture2D" uid="uid://8sp7opukbaar" path="res://assets/locations/Front Rock/Rocks With Lava-6.png.png" id="5_rnieo"]
 [ext_resource type="Texture2D" uid="uid://dghueippoavj8" path="res://assets/locations/Front Rock/Rocks With Lava-7.png.png" id="6_eykob"]
-[ext_resource type="Texture2D" uid="uid://3hgnpf4o3rwd" path="res://assets/locations/Lava/Lava-1.png.png" id="7_ihyio"]
 [ext_resource type="Script" path="res://character_body_2d.gd" id="8_5tprd"]
 [ext_resource type="PackedScene" uid="uid://cdfb0xq1qeb27" path="res://water_enemy.tscn" id="9_k0go3"]
 [ext_resource type="Texture2D" uid="uid://ce53uw856wxw5" path="res://Angel_Walking-1.png.webp" id="10_ohhcs"]
@@ -20,10 +19,9 @@
 [ext_resource type="Texture2D" uid="uid://brbyi001kvtbg" path="res://assets/Angel/Angel Walking Spear-3.png.png" id="18_iwlm1"]
 [ext_resource type="Texture2D" uid="uid://bwdwkl2uqb7pm" path="res://assets/Angel/Angel Walking Sword-1.png.png" id="19_cjw22"]
 [ext_resource type="Texture2D" uid="uid://cmxorpusbchh0" path="res://assets/Angel/Angel Walking Sword-2.png.png" id="20_6tlhh"]
+[ext_resource type="Texture2D" uid="uid://cqgnmkti1pqna" path="res://assets/locations/Ground/Stone-1.png.png" id="21_207cp"]
 [ext_resource type="Texture2D" uid="uid://blpi7b7qio7dy" path="res://assets/Angel/Angel Walking Sword-3.png.png" id="21_sxsea"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xbgdy"]
-size = Vector2(1458, 279)
+[ext_resource type="Texture2D" uid="uid://dlfxihex7lk3i" path="res://assets/locations/Ground/Stone-2.png.png" id="22_b3sjd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0b13j"]
 animations = [{
@@ -127,6 +125,26 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_22tvb"]
+size = Vector2(87, 787)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kegji"]
+size = Vector2(1444, 328)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iktdl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_207cp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_b3sjd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Node2D" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -134,10 +152,6 @@ animations = [{
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(11, -4)
 motion_mirroring = Vector2(1460, 0)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(697, 897)
-shape = SubResource("RectangleShape2D_xbgdy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(719, 349)
@@ -150,22 +164,13 @@ position = Vector2(731, 720)
 scale = Vector2(4.60781, 1.44687)
 sprite_frames = SubResource("SpriteFrames_53l12")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(712, 956)
-scale = Vector2(4.55312, 2.5125)
-texture = ExtResource("7_ihyio")
-
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(2171, 959)
-scale = Vector2(4.55312, 2.5125)
-texture = ExtResource("7_ihyio")
-
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("8_5tprd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(129, 395)
 shape = SubResource("RectangleShape2D_m32on")
+one_way_collision = true
 
 [node name="water enemy" parent="CharacterBody2D/CollisionShape2D" instance=ExtResource("9_k0go3")]
 position = Vector2(1862, -121)
@@ -185,5 +190,88 @@ one_shot = true
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(545, 339)
 position_smoothing_speed = 1.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-35, 389)
+shape = SubResource("RectangleShape2D_22tvb")
+
+[node name="Area2D" type="Area2D" parent="Area2D"]
+position = Vector2(11, -4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/Area2D"]
+position = Vector2(437, 868)
+shape = SubResource("RectangleShape2D_kegji")
+
+[node name="Area2D2" type="Area2D" parent="Area2D"]
+position = Vector2(11, -4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/Area2D2"]
+position = Vector2(1884, 951)
+shape = SubResource("RectangleShape2D_kegji")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(153.5, 868)
+scale = Vector2(0.978125, 1.05625)
+sprite_frames = SubResource("SpriteFrames_iktdl")
+autoplay = "default"
+frame_progress = 0.874706
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(463, 868)
+scale = Vector2(0.978125, 1.05625)
+sprite_frames = SubResource("SpriteFrames_iktdl")
+autoplay = "default"
+frame_progress = 0.162201
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+position = Vector2(777, 868)
+scale = Vector2(0.978125, 1.05625)
+sprite_frames = SubResource("SpriteFrames_iktdl")
+autoplay = "default"
+frame_progress = 0.887612
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="."]
+position = Vector2(1574, 950)
+scale = Vector2(0.978125, 1.05625)
+sprite_frames = SubResource("SpriteFrames_iktdl")
+autoplay = "default"
+frame_progress = 0.887612
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="."]
+position = Vector2(1887, 951)
+scale = Vector2(0.978125, 1.05625)
+sprite_frames = SubResource("SpriteFrames_iktdl")
+autoplay = "default"
+frame_progress = 0.887612
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="."]
+position = Vector2(2201, 951)
+scale = Vector2(0.978125, 1.05625)
+sprite_frames = SubResource("SpriteFrames_iktdl")
+autoplay = "default"
+frame_progress = 0.887612
+
+[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="."]
+position = Vector2(2486, 952)
+scale = Vector2(0.798438, 1.05625)
+sprite_frames = SubResource("SpriteFrames_iktdl")
+autoplay = "default"
+frame_progress = 0.887612
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="."]
+position = Vector2(1053.75, 867)
+scale = Vector2(0.757813, 1.05625)
+sprite_frames = SubResource("SpriteFrames_iktdl")
+autoplay = "default"
+frame_progress = 0.887612
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="."]
+position = Vector2(1296, 951)
+scale = Vector2(0.757813, 1.05625)
+sprite_frames = SubResource("SpriteFrames_iktdl")
+autoplay = "default"
+frame_progress = 0.887612
 
 [connection signal="timeout" from="CharacterBody2D/DashCooldown" to="CharacterBody2D" method="_on_dash_cooldown_timeout"]

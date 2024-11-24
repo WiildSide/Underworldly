@@ -274,10 +274,10 @@ animations = [{
 script = ExtResource("1_434x4")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_left = 413.0
-offset_top = 464.0
-offset_right = 731.0
-offset_bottom = 585.0
+offset_left = 510.0
+offset_top = 468.0
+offset_right = 828.0
+offset_bottom = 589.0
 
 [node name="Bow" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -303,14 +303,14 @@ texture = ExtResource("2_msleq")
 centered = false
 
 [node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(1115, 441)
+position = Vector2(1133.68, 492.348)
 rotation = 3.14159
-scale = Vector2(2.72562, 2.39572)
+scale = Vector2(2.76211, 2.57401)
 texture = ExtResource("2_msleq")
 centered = false
 
 [node name="animated bow" type="AnimatedSprite2D" parent="."]
-position = Vector2(283, 289)
+position = Vector2(393, 291)
 scale = Vector2(0.8875, 0.953125)
 sprite_frames = SubResource("SpriteFrames_a3vo4")
 autoplay = "default"
@@ -318,15 +318,19 @@ frame_progress = 0.26162
 speed_scale = 5.0
 
 [node name="animated spear" type="AnimatedSprite2D" parent="."]
-position = Vector2(668, 276)
+position = Vector2(744, 278)
 sprite_frames = SubResource("SpriteFrames_5cg38")
 autoplay = "default"
 frame_progress = 0.870706
 
 [node name="animated sword" type="AnimatedSprite2D" parent="animated spear"]
-position = Vector2(332, 8)
+position = Vector2(414, 6)
 scale = Vector2(0.839062, 0.832812)
 sprite_frames = SubResource("SpriteFrames_rlhgg")
 animation = &"new_animation"
 autoplay = "new_animation"
 frame_progress = 0.554433
+
+[connection signal="pressed" from="VBoxContainer/Bow" to="." method="_on_bow_pressed"]
+[connection signal="pressed" from="VBoxContainer/Spear" to="." method="_on_spear_pressed"]
+[connection signal="pressed" from="VBoxContainer/Sword" to="." method="_on_sword_pressed"]
