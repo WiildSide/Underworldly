@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://cdfb0xq1qeb27"]
+
+[ext_resource type="Texture2D" uid="uid://dv1fum74oglsv" path="res://assets/Water Enemy/Water Enemy-1.png.png" id="1_hyhdl"]
+[ext_resource type="Script" path="res://water_enemy.gd" id="1_ov1ic"]
+[ext_resource type="Texture2D" uid="uid://btio34aqdn3rv" path="res://assets/Water Enemy/Water Enemy-2.png.png" id="2_vsvob"]
+[ext_resource type="Texture2D" uid="uid://omyi61h6hr76" path="res://assets/Water Enemy/Water Enemy-3.png.png" id="3_elkiu"]
+[ext_resource type="Texture2D" uid="uid://cmu61f3yvrrpq" path="res://assets/Water Enemy/Water Enemy-4.png.png" id="4_ldrmo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mg0rp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hyhdl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_vsvob")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_elkiu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ldrmo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5p0iw"]
+radius = 319.265
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bl7ma"]
+radius = 55.109
+
+[node name="water enemy" type="CharacterBody2D"]
+script = ExtResource("1_ov1ic")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(370.5, 254.5)
+scale = Vector2(0.565625, 0.496875)
+sprite_frames = SubResource("SpriteFrames_mg0rp")
+frame_progress = 0.158519
+
+[node name="detection_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(362, 229)
+shape = SubResource("CircleShape2D_5p0iw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(370, 295)
+shape = SubResource("CircleShape2D_bl7ma")
+
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

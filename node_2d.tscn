@@ -1,6 +1,5 @@
-[gd_scene load_steps=21 format=3 uid="uid://boc0kl7gb00kl"]
+[gd_scene load_steps=20 format=3 uid="uid://boc0kl7gb00kl"]
 
-[ext_resource type="Script" path="res://character_body_2d.gd" id="1_ruomi"]
 [ext_resource type="Texture2D" uid="uid://cio6s72f0ao5" path="res://battlebgDream.png" id="1_u0rl5"]
 [ext_resource type="Texture2D" uid="uid://ce53uw856wxw5" path="res://Angel_Walking-1.png.webp" id="3_w4i5b"]
 [ext_resource type="Texture2D" uid="uid://dvauhcbl2v425" path="res://Angel_Walking-2.png.webp" id="4_p5j4l"]
@@ -15,6 +14,22 @@
 [ext_resource type="Texture2D" uid="uid://cmxorpusbchh0" path="res://assets/Angel/Angel Walking Sword-2.png.png" id="13_a1hao"]
 [ext_resource type="Texture2D" uid="uid://blpi7b7qio7dy" path="res://assets/Angel/Angel Walking Sword-3.png.png" id="14_4iw1k"]
 [ext_resource type="Texture2D" uid="uid://bxvfda3qt7j5l" path="res://assets/Map/Prototype_Grid_Gray_10-512x512.png" id="15_d8gum"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gs7wg"]
+size = Vector2(1240, 126)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2xxnc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xio7p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_d8gum")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ehgik"]
 size = Vector2(123, 127.75)
@@ -87,22 +102,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_2xxnc"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gs7wg"]
-size = Vector2(1240, 126)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_xio7p"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("15_d8gum")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [node name="Node2D" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -119,27 +118,9 @@ scale = Vector2(2.24609, 2.26042)
 texture = ExtResource("1_u0rl5")
 centered = false
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-script = ExtResource("1_ruomi")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(506, 209.875)
-shape = SubResource("RectangleShape2D_ehgik")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-position = Vector2(506, 212)
-scale = Vector2(0.38125, 0.4125)
-sprite_frames = SubResource("SpriteFrames_i0jhf")
-animation = &"movement"
-frame_progress = 0.493844
-
-[node name="DashCooldown" type="Timer" parent="CharacterBody2D"]
-wait_time = 3.0
-one_shot = true
-
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-position = Vector2(499, 204)
-position_smoothing_speed = 1.0
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(557, 591)
+shape = SubResource("RectangleShape2D_gs7wg")
 
 [node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
 
@@ -148,16 +129,33 @@ position = Vector2(1332, 820)
 scale = Vector2(9.78125, 1)
 sprite_frames = SubResource("SpriteFrames_2xxnc")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
-position = Vector2(557, 591)
-shape = SubResource("RectangleShape2D_gs7wg")
+[node name="CharacterBody2D3" type="CharacterBody2D" parent="CharacterBody2D2"]
 
-[node name="CharacterBody2D3" type="CharacterBody2D" parent="."]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D3"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D2/CharacterBody2D3"]
 texture_repeat = 2
-position = Vector2(555.5, 589.625)
+position = Vector2(562, 644)
 scale = Vector2(2.41992, 0.229004)
 sprite_frames = SubResource("SpriteFrames_xio7p")
 
-[connection signal="timeout" from="CharacterBody2D/DashCooldown" to="CharacterBody2D" method="_on_dash_cooldown_timeout"]
+[node name="Angel_Weaponless" type="CharacterBody2D" parent="."]
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Angel_Weaponless"]
+position = Vector2(398, 370)
+shape = SubResource("RectangleShape2D_ehgik")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Angel_Weaponless"]
+position = Vector2(395, 369)
+scale = Vector2(0.38125, 0.4125)
+sprite_frames = SubResource("SpriteFrames_i0jhf")
+animation = &"movement_bow"
+
+[node name="DashCooldown" type="Timer" parent="Angel_Weaponless"]
+wait_time = 3.0
+one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="Angel_Weaponless"]
+position = Vector2(499, 204)
+position_smoothing_speed = 1.0
+
+[connection signal="timeout" from="Angel_Weaponless/DashCooldown" to="Angel_Weaponless" method="_on_dash_cooldown_timeout"]

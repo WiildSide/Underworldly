@@ -29,6 +29,7 @@ func _physics_process(delta: float) -> void:
 		# Handles left-right movement
 		var direction = Input.get_axis("left", "right")
 		if direction:
+			@warning_ignore("narrowing_conversion")
 			last_direction = direction
 			velocity.x = direction * speed
 		else:
@@ -69,3 +70,4 @@ func _physics_process(delta: float) -> void:
 
 func _on_dash_cooldown_timeout() -> void:
 	dash_ready = true
+	
