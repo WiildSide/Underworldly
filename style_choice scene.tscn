@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://vsjmu7m6l1ah"]
+
+[ext_resource type="Texture2D" uid="uid://84c4hu2rtq8b" path="res://battlebgWeatherSun.png" id="1_nj3ti"]
+[ext_resource type="Texture2D" uid="uid://dr36q1lkmuknx" path="res://assets/Bow/The_Bow-1.png.png" id="2_itv2t"]
+[ext_resource type="Texture2D" uid="uid://bi0jyb3vypnmi" path="res://assets/Spear/Spear-1.png.png" id="3_o3m0g"]
+[ext_resource type="Texture2D" uid="uid://cvpf8sp0oq5wt" path="res://assets/Sword/Sword-25.png.png" id="4_q8l6s"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(-1, -1)
+texture = ExtResource("1_nj3ti")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(514, 295)
+rotation = 3.14159
+scale = Vector2(1.00462, 1.02203)
+texture = ExtResource("1_nj3ti")
+centered = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(95, 150)
+scale = Vector2(0.428125, 0.335938)
+texture = ExtResource("2_itv2t")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(238.25, 138)
+rotation = 0.742001
+scale = Vector2(0.304688, 0.3125)
+texture = ExtResource("3_o3m0g")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(380, 145)
+rotation = -0.000276539
+scale = Vector2(0.265625, 0.35)
+texture = ExtResource("4_q8l6s")
