@@ -6,36 +6,39 @@
 [ext_resource type="Texture2D" uid="uid://cvpf8sp0oq5wt" path="res://assets/Sword/Sword-25.png.png" id="4_q8l6s"]
 
 [node name="Node2D" type="Node2D"]
+position = Vector2(295, 256)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(284, 253)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(-1, -1)
+position = Vector2(-281, -249)
+scale = Vector2(2.74023, 2.47917)
 texture = ExtResource("1_nj3ti")
 centered = false
 
 [node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(514, 295)
+position = Vector2(1099.22, 439.813)
 rotation = 3.14159
-scale = Vector2(1.00462, 1.02203)
+scale = Vector2(2.69606, 2.39572)
 texture = ExtResource("1_nj3ti")
 centered = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(95, 150)
-scale = Vector2(0.428125, 0.335938)
+position = Vector2(66, 55)
+scale = Vector2(0.747656, 0.748047)
 texture = ExtResource("2_itv2t")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(238.25, 138)
+position = Vector2(398, 50)
 rotation = 0.742001
-scale = Vector2(0.304688, 0.3125)
+scale = Vector2(0.573787, 0.796559)
 texture = ExtResource("3_o3m0g")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
-position = Vector2(380, 145)
+position = Vector2(680, 64)
 rotation = -0.000276539
-scale = Vector2(0.265625, 0.35)
+scale = Vector2(0.682467, 0.890593)
 texture = ExtResource("4_q8l6s")
