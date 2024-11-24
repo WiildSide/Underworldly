@@ -3,10 +3,10 @@ extends Node2D
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
-	get_viewport().size = DisplayServer.screen_get_size()
 
 
 func _on_play_pressed() -> void:
+	get_viewport().size = DisplayServer.screen_get_size()
 	get_tree().change_scene_to_file("res://style_choice scene.tscn")
 
 
