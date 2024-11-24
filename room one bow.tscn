@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://brodyjmk78vxg"]
+[gd_scene load_steps=29 format=3 uid="uid://brodyjmk78vxg"]
 
 [ext_resource type="Texture2D" uid="uid://bwqo5r1717w88" path="res://assets/locations/Front Rock/Rocks With Lava-1.png.png" id="1_lnunv"]
 [ext_resource type="Texture2D" uid="uid://bmwr1otrtf6fp" path="res://assets/locations/Front Rock/Rocks With Lava-2.png.png" id="2_yxuwx"]
@@ -54,9 +54,6 @@ animations = [{
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_53l12"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_m32on"]
-size = Vector2(215.25, 219.938)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_y8ri1"]
 animations = [{
 "frames": [{
@@ -88,7 +85,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"movement_bow",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -125,11 +122,11 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kegji"]
+size = Vector2(1463, 346.5)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_22tvb"]
 size = Vector2(87, 787)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kegji"]
-size = Vector2(1444, 328)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_iktdl"]
 animations = [{
@@ -154,6 +151,8 @@ position = Vector2(11, -4)
 motion_mirroring = Vector2(1460, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ParallaxBackground/ParallaxLayer"]
+light_mask = 2
+visibility_layer = 2
 position = Vector2(719, 349)
 sprite_frames = SubResource("SpriteFrames_0b13j")
 autoplay = "default"
@@ -164,59 +163,85 @@ position = Vector2(731, 720)
 scale = Vector2(4.60781, 1.44687)
 sprite_frames = SubResource("SpriteFrames_53l12")
 
+[node name="water enemy" parent="." instance=ExtResource("9_k0go3")]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(1991, 274)
+
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+light_mask = 3
+visibility_layer = 3
 script = ExtResource("8_5tprd")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(129, 395)
-shape = SubResource("RectangleShape2D_m32on")
-one_way_collision = true
-
-[node name="water enemy" parent="CharacterBody2D/CollisionShape2D" instance=ExtResource("9_k0go3")]
-position = Vector2(1862, -121)
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-position = Vector2(131, 388)
-scale = Vector2(0.603125, 0.623438)
+light_mask = 3
+visibility_layer = 3
+position = Vector2(159, 498)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_y8ri1")
 animation = &"movement_bow"
-frame = 1
-frame_progress = 0.0815087
+autoplay = "movement_bow"
+frame_progress = 0.903747
 
 [node name="DashCooldown" type="Timer" parent="CharacterBody2D"]
 wait_time = 3.0
 one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+light_mask = 3
+visibility_layer = 3
 position = Vector2(545, 339)
 position_smoothing_speed = 1.0
 
+[node name="Area2D2" type="Area2D" parent="."]
+process_priority = 5
+process_physics_priority = 5
+light_mask = 3
+position = Vector2(11, -4)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+process_priority = 10
+process_physics_priority = 10
+top_level = true
+light_mask = 3
+visibility_layer = 3
+position = Vector2(444, 782)
+shape = SubResource("RectangleShape2D_kegji")
+one_way_collision_margin = 2.0
+
+[node name="Area2D3" type="Area2D" parent="."]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(11, -4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(1884, 958.25)
+shape = SubResource("RectangleShape2D_kegji")
+
 [node name="Area2D" type="Area2D" parent="."]
+light_mask = 3
+visibility_layer = 3
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+light_mask = 3
+visibility_layer = 3
 position = Vector2(-35, 389)
 shape = SubResource("RectangleShape2D_22tvb")
 
-[node name="Area2D" type="Area2D" parent="Area2D"]
-position = Vector2(11, -4)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/Area2D"]
-position = Vector2(437, 868)
-shape = SubResource("RectangleShape2D_kegji")
-
-[node name="Area2D2" type="Area2D" parent="Area2D"]
-position = Vector2(11, -4)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/Area2D2"]
-position = Vector2(1884, 951)
-shape = SubResource("RectangleShape2D_kegji")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 3
+visibility_layer = 3
 position = Vector2(153.5, 868)
 scale = Vector2(0.978125, 1.05625)
 sprite_frames = SubResource("SpriteFrames_iktdl")
 autoplay = "default"
-frame_progress = 0.874706
+frame_progress = 0.145183
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 position = Vector2(463, 868)

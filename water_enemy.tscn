@@ -39,6 +39,7 @@ script = ExtResource("1_ov1ic")
 position = Vector2(370.5, 254.5)
 scale = Vector2(0.565625, 0.496875)
 sprite_frames = SubResource("SpriteFrames_mg0rp")
+autoplay = "default"
 frame_progress = 0.158519
 
 [node name="detection_area" type="Area2D" parent="."]
@@ -50,6 +51,8 @@ position = Vector2(362, 229)
 shape = SubResource("CircleShape2D_5p0iw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 3
+visibility_layer = 3
 position = Vector2(370, 295)
 shape = SubResource("CircleShape2D_bl7ma")
 

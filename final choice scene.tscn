@@ -298,14 +298,14 @@ position = Vector2(284, 253)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2(-282, -253)
-scale = Vector2(2.74023, 2.47917)
+scale = Vector2(2.66602, 2.47917)
 texture = ExtResource("2_msleq")
 centered = false
 
 [node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(1133.68, 492.348)
+position = Vector2(1082.05, 492.348)
 rotation = 3.14159
-scale = Vector2(2.76211, 2.57401)
+scale = Vector2(2.66126, 2.57401)
 texture = ExtResource("2_msleq")
 centered = false
 
