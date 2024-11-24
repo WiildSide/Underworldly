@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bxvfda3qt7j5l" path="res://assets/Map/Prototype_Grid_Gray_10-512x512.png" id="15_d8gum"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ehgik"]
-size = Vector2(123, 131.5)
+size = Vector2(123, 127.75)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i0jhf"]
 animations = [{
@@ -106,6 +106,7 @@ animations = [{
 [node name="Node2D" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+follow_viewport_enabled = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2(0.5, 0.5)
@@ -122,11 +123,11 @@ centered = false
 script = ExtResource("1_ruomi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(137, 458)
+position = Vector2(506, 209.875)
 shape = SubResource("RectangleShape2D_ehgik")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-position = Vector2(139, 460)
+position = Vector2(506, 212)
 scale = Vector2(0.38125, 0.4125)
 sprite_frames = SubResource("SpriteFrames_i0jhf")
 animation = &"movement"
@@ -155,8 +156,8 @@ shape = SubResource("RectangleShape2D_gs7wg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D3"]
 texture_repeat = 2
-position = Vector2(478, 589.625)
-scale = Vector2(2.11719, 0.229004)
+position = Vector2(555.5, 589.625)
+scale = Vector2(2.41992, 0.229004)
 sprite_frames = SubResource("SpriteFrames_xio7p")
 
 [connection signal="timeout" from="CharacterBody2D/DashCooldown" to="CharacterBody2D" method="_on_dash_cooldown_timeout"]
